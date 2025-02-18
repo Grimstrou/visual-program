@@ -5,14 +5,14 @@
 
 body {
     display: grid;
-    grid-template-rows: auto 1fr auto; /* Сделаем размеры строк адаптивными */
+    grid-template-rows: auto 1fr auto; 
     font-family: 'Inter', sans-serif;
     color: #fff;
 }
 
 .header {
     width: 100%;
-    min-height: 400px; /* Минимальная высота для header */
+    min-height: 400px; 
     text-align: center;
     background: rgb(27, 84, 221);
     padding-bottom: 30px;
@@ -72,19 +72,19 @@ body {
 .main {
     background: #fff;
     color: #000;  
-    height: auto; /* Заменили фиксированную высоту на auto */
+    height: auto; 
     display: flex;
-    align-items: flex-start; /* Выравнивание элементов сверху */
+    align-items: flex-start; 
     justify-content: center;
-    gap: 60px; /* Расстояние между изображением и текстом */
-    padding-top: 67px; /* Отступ сверху, чтобы поднять элементы */
+    gap: 60px; 
+    padding-top: 67px; 
 }
 
 .wrapper {
     display: flex;
-    flex-direction: column; /* Строки идут по вертикали */
-    gap: 40px; /* Отступы между строками */
-    align-items: center; /* Центрируем контент */
+    flex-direction: column; 
+    gap: 40px; 
+    align-items: center;
 }
 
 .row {
@@ -96,7 +96,7 @@ body {
 }
 
 .cat_photo2 img {
-    width: 480px; /* Размер фото */
+    width: 480px; 
     height: auto;
     display: block;
     padding-bottom: 20px;
@@ -104,8 +104,8 @@ body {
 
 .container {
     display: flex;
-    flex-direction: column; /* Строки внутри контейнера идут по вертикали */
-    max-width: 500px; /* Ограничим ширину контейнера */
+    flex-direction: column; 
+    max-width: 500px; 
 }
 
 .text-box-1 {
@@ -193,7 +193,6 @@ body {
 }
 
 @media (max-width: 768px) {
-    /* Заголовок */
     .header {
         padding: 20px;
         text-align: center;
@@ -215,7 +214,6 @@ body {
         padding-top: 40px;
     }
 
-    /* Изображения и текст */
     .main {
         padding-top: 40px;
         display: flex;
@@ -229,15 +227,15 @@ body {
     }
 
     .row {
-        flex-direction: column; /* Строки идут по вертикали */
-        align-items: center; /* Центрируем по горизонтали */
+        flex-direction: column; 
+        align-items: center; 
         text-align: center;
         gap: 20px;
     }
 
     .cat_photo2 img {
         width: 100%;
-        max-width: 400px; /* Ограничиваем максимальную ширину изображения */
+        max-width: 400px; 
         margin-bottom: 10px;
     }
 
@@ -251,12 +249,12 @@ body {
     }
 
     .text-box-1, .text-box-2, .text-box-3 {
-        font-size: 16px; /* Уменьшаем размер шрифта на мобильных устройствах */
-        text-align: left; /* Текст выравнивается по левому краю */
-        width: 90%; /* Задаем ширину для удобного отображения на мобильных устройствах */
-        padding-left: 55px; /* Отступ слева */
+        font-size: 16px; 
+        text-align: left; 
+        width: 90%; 
+        padding-left: 55px; 
         margin-left: auto; 
-        margin-right: auto; /* Центрируем блоки */
+        margin-right: auto; 
     }
 
     .button, .button-two {
