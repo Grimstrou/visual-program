@@ -1,0 +1,295 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    display: grid;
+    grid-template-rows: auto 1fr auto; /* Сделаем размеры строк адаптивными */
+    font-family: 'Inter', sans-serif;
+    color: #fff;
+}
+
+.header {
+    width: 100%;
+    min-height: 400px; /* Минимальная высота для header */
+    text-align: center;
+    background: rgb(27, 84, 221);
+    padding-bottom: 30px;
+    padding-top: 27px;
+}
+
+.text-header {
+    font-family: 'Impact', sans-serif;
+    font-weight: 900;
+    font-size: 31.58px;
+    line-height: 70px;  
+    letter-spacing: 4px;
+}
+
+.text-header2 {
+    font-weight: 700;
+    font-size: 36px;
+    padding-top: 90px;
+    padding-left: 60px;
+    letter-spacing: 4px;
+    padding-bottom: 50px;
+}
+
+.cat-photo {
+    width: 480px;
+    height: 270px;
+}
+
+.text-header3 {
+    font-weight: 700;
+    padding-top: 50px;
+    font-size: 27px;
+}
+
+.text-header4 {
+    font-size: 23px;
+    font-weight: 300;
+    padding-top: 70px;
+}
+
+.button {
+    background: #fff; 
+    color: #000000; 
+    cursor: pointer; 
+    font-size: 16px; 
+    font-weight: 600;
+    width: 145px; 
+    height: 53px; 
+    border-radius: 4px; 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto; 
+    margin-top: 40px;
+}
+
+.main {
+    background: #fff;
+    color: #000;  
+    height: auto; /* Заменили фиксированную высоту на auto */
+    display: flex;
+    align-items: flex-start; /* Выравнивание элементов сверху */
+    justify-content: center;
+    gap: 60px; /* Расстояние между изображением и текстом */
+    padding-top: 67px; /* Отступ сверху, чтобы поднять элементы */
+}
+
+.wrapper {
+    display: flex;
+    flex-direction: column; /* Строки идут по вертикали */
+    gap: 40px; /* Отступы между строками */
+    align-items: center; /* Центрируем контент */
+}
+
+.row {
+    display: flex;
+    align-items: center;
+    gap: 30px; 
+    width: 100%; 
+    max-width: 900px; 
+}
+
+.cat_photo2 img {
+    width: 480px; /* Размер фото */
+    height: auto;
+    display: block;
+    padding-bottom: 20px;
+}
+
+.container {
+    display: flex;
+    flex-direction: column; /* Строки внутри контейнера идут по вертикали */
+    max-width: 500px; /* Ограничим ширину контейнера */
+}
+
+.text-box-1 {
+    font-size: 45px;
+    font-weight: 700;
+    text-align: left;
+    color: rgb(38, 38, 38);
+    padding-top: -20px;
+}
+
+.text-box-2 {
+    font-size: 24px;
+    font-weight: 400;
+    color: rgb(38, 38, 38);
+    text-align: left;
+    padding-top: 20px;
+}
+
+.text-box-3 {
+    font-size: 27px;
+    cursor: pointer;
+    font-weight: 600;
+    color: rgb(27, 84, 221);
+    padding-top: 35px;
+}
+
+.button-two {
+    background: rgb(27, 84, 221); 
+    color: #fff; 
+    cursor: pointer; 
+    font-size: 16px; 
+    font-weight: 600;
+    width: 145px; 
+    height: 53px; 
+    border-radius: 4px; 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto; 
+    margin-top: 40px;
+    margin-bottom: 40px;
+}
+
+.footer {
+    background: rgb(232, 232, 232);
+    width: 100%;
+    height: 450px;
+    margin-top: 40px;
+}
+
+.img-container {
+    padding-top: 55px;
+    display: flex; 
+    justify-content: center; 
+    gap: 70px; 
+}
+
+.img-container img {
+    width: 40px; 
+    height: auto; 
+}
+
+.footer-text1 {
+    font-size: 32px;
+    padding-top: 45px;
+    text-align: center;
+    color: rgb(38, 38, 38);
+    font-weight: 400;
+}
+
+.footer-text2 {
+    font-size: 22px;
+    padding-top: 14px;
+    text-align: center;
+    color: rgb(38, 38, 38);
+    font-weight: 400;
+}
+
+.footer-picture {
+    justify-content: center; 
+    display: flex; 
+    width: 100%;
+    height: 60px;
+    padding-top: 35px;
+}
+
+@media (max-width: 768px) {
+    /* Заголовок */
+    .header {
+        padding: 20px;
+        text-align: center;
+    }
+
+    .text-header {
+        font-size: 24px;
+        line-height: 1.4;
+    }
+
+    .text-header2 {
+        font-size: 28px;
+        padding-left: 20px;
+        padding-top: 20px;
+    }
+
+    .text-header3, .text-header4 {
+        font-size: 20px;
+        padding-top: 40px;
+    }
+
+    /* Изображения и текст */
+    .main {
+        padding-top: 40px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .wrapper {
+        width: 100%;
+        gap: 20px;
+    }
+
+    .row {
+        flex-direction: column; /* Строки идут по вертикали */
+        align-items: center; /* Центрируем по горизонтали */
+        text-align: center;
+        gap: 20px;
+    }
+
+    .cat_photo2 img {
+        width: 100%;
+        max-width: 400px; /* Ограничиваем максимальную ширину изображения */
+        margin-bottom: 10px;
+    }
+
+    .container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 10px;
+        width: 100%;
+        padding: 0 20px;
+    }
+
+    .text-box-1, .text-box-2, .text-box-3 {
+        font-size: 16px; /* Уменьшаем размер шрифта на мобильных устройствах */
+        text-align: left; /* Текст выравнивается по левому краю */
+        width: 90%; /* Задаем ширину для удобного отображения на мобильных устройствах */
+        padding-left: 55px; /* Отступ слева */
+        margin-left: auto; 
+        margin-right: auto; /* Центрируем блоки */
+    }
+
+    .button, .button-two {
+        width: 120px;
+        height: 45px;
+        font-size: 14px;
+        margin-top: 20px;
+    }
+
+    .footer {
+        height: auto;
+        width: 100%;
+        padding-bottom: 20px;
+    }
+
+    .img-container {
+        gap: 30px;
+    }
+
+    .img-container img {
+        width: 30px;
+        height: auto;
+    }
+
+    .footer-text1 {
+        font-size: 20px;
+    }
+
+    .footer-text2 {
+        font-size: 16px;
+    }
+
+    .footer-picture {
+        height: 50px;
+    }
+}
