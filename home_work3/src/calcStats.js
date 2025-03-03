@@ -1,4 +1,3 @@
-// src/calcStats.js
 function calcStats(catsInfo) {
   const stats = {};
 
