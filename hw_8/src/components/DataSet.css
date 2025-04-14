@@ -1,0 +1,87 @@
+.dataSetTable {
+  width: 100%;
+  border-collapse: collapse;
+  font-family: 'Roboto', sans-serif;
+  background-color: #fff;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  margin: 20px 0;
+}
+
+.dataSetTable thead tr {
+  background-color: #66752e;
+  color: #fff;
+}
+
+.dataSetTable th,
+.dataSetTable td {
+  padding: 12px 15px;
+  border: 1px solid #ddd;
+  text-align: left;
+}
+
+.dataSetTable tbody tr:hover {
+  background-color: #f1f1f1;
+}
+
+.dataSetTable tbody tr.selected {
+  background-color: #ffcc80;
+}
+
+.selectableArea {
+  width: 30px;
+  text-align: center;
+  background-color: #dcf3b1;
+  border-right: 1px solid #ccc;
+}
+
+.form {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: 20px;
+}
+
+.form input,
+.form textarea {
+  padding: 8px;
+  font-size: 14px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+.form textarea {
+  resize: none;
+  height: 40px;
+}
+
+.form button {
+  padding: 10px 20px;
+  font-size: 16px;
+  border: none;
+  background-color: #4caf50;
+  color: #fff;
+  border-radius: 4px;
+  transition: background-color 0.3s ease;
+}
+
+.form button:hover {
+  background-color: #388e3c;
+}
+
+.exportButton {
+  margin-top: 20px;
+  padding: 10px 20px;
+  font-size: 16px;
+  border: none;
+  background-color: #1976d2;
+  color: #fff;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.exportButton:hover {
+  background-color: #115293;
+}
