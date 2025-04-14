@@ -1,0 +1,38 @@
+.app {
+  text-align: center;
+  padding: 20px;
+}
+
+.search-input {
+  width: 80%;
+  padding: 10px;
+  margin-bottom: 20px;
+  font-size: 16px;
+}
+
+.sorting {
+  margin-bottom: 20px;
+}
+
+.book-list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+}
+
+.book-card {
+  background: white;
+  padding: 15px;
+  border-radius: 8px;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+  width: 220px;
+  text-align: center;
+}
+
+.book-image {
+  width: 100px;
+  height: 150px;
+  object-fit: cover;
+  margin-bottom: 10px;
+}
