@@ -1,10 +1,16 @@
-const API_URL = 'http://localhost:5012';
+const API_URL = 'http://localhost:5117';
 
 export const LogService = {
     async getLogs(filters = {}) {
-        const response = await fetch(`${API_URL}/comments`);
+        const queryParams = new URLSearchParams();
+        if (filters.level) queryParams.append('level', filters.level);
+        if (filters.search) queryParams.append('search', filters.search);
+        if (filters.startDate) queryParams.append('startDate', filters.startDate);
+        if (filters.endDate) queryParams.append('endDate', filters.endDate);
+
+        const response = await fetch(`${API_URL}/logs/search?${queryParams}`);
         if (!response.ok) {
-            throw new Error('Failed to fetch comments');
+            throw new Error('Failed to fetch logs');
         }
         return response.json();
     },

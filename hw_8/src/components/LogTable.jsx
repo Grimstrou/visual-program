@@ -6,19 +6,21 @@ const LogTable = ({ logs }) => {
             <table className="log-table">
                 <thead>
                     <tr>
-                        <th>ID</th>
-                        <th>Автор</th>
-                        <th>Email</th>
-                        <th>Текст</th>
+                        <th>Timestamp</th>
+                        <th>Level</th>
+                        <th>Action</th>
+                        <th>Message</th>
+                        <th>Exception</th>
                     </tr>
                 </thead>
                 <tbody>
                     {logs.map(log => (
-                        <tr key={log.id}>
-                            <td>{log.id}</td>
-                            <td>{log.author}</td>
-                            <td>{log.email}</td>
-                            <td>{log.text}</td>
+                        <tr key={log.id} className={`log-row ${log.level?.toLowerCase()}`}>
+                            <td>{new Date(log.timestamp).toLocaleString()}</td>
+                            <td>{log.level}</td>
+                            <td>{log.action}</td>
+                            <td>{log.message}</td>
+                            <td>{log.exception}</td>
                         </tr>
                     ))}
                 </tbody>

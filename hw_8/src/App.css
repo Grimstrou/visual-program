@@ -47,3 +47,44 @@
   .form button:hover {
     background-color: #388e3c;
   }
+  
+  .log-table-container {
+    margin-top: 20px;
+    overflow-x: auto;
+  }
+  
+  .log-table {
+    width: 100%;
+    border-collapse: collapse;
+    background-color: white;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  }
+  
+  .log-table th,
+  .log-table td {
+    padding: 12px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+  }
+  
+  .log-table th {
+    background-color: #f8f9fa;
+    font-weight: 600;
+  }
+  
+  .log-row:hover {
+    background-color: #f5f5f5;
+  }
+  
+  .log-row.information {
+    background-color: #e3f2fd;
+  }
+  
+  .log-row.warning {
+    background-color: #fff3e0;
+  }
+  
+  .log-row.error {
+    background-color: #ffebee;
+  }
+  

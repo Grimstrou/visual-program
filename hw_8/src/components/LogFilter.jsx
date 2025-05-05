@@ -11,11 +11,7 @@ const LogFilter = ({ filters, onFilterChange }) => {
 
     const handleDateChange = (e, type) => {
         const value = e.target.value;
-        if (type === 'start') {
-            onFilterChange({ ...filters, startDate: value ? new Date(value) : null });
-        } else {
-            onFilterChange({ ...filters, endDate: value ? new Date(value) : null });
-        }
+        onFilterChange({ ...filters, [type]: value });
     };
 
     return (
@@ -25,7 +21,7 @@ const LogFilter = ({ filters, onFilterChange }) => {
                 onChange={handleLevelChange}
                 className="filter-select"
             >
-                <option value="">Все уровни</option>
+                <option value="">All Levels</option>
                 <option value="Information">Information</option>
                 <option value="Warning">Warning</option>
                 <option value="Error">Error</option>
@@ -33,7 +29,7 @@ const LogFilter = ({ filters, onFilterChange }) => {
 
             <input
                 type="text"
-                placeholder="Поиск по тексту комментария..."
+                placeholder="Search logs..."
                 value={filters.search}
                 onChange={handleSearch}
                 className="filter-input"
@@ -42,12 +38,12 @@ const LogFilter = ({ filters, onFilterChange }) => {
             <div className="date-filters">
                 <input
                     type="datetime-local"
-                    onChange={(e) => handleDateChange(e, 'start')}
+                    onChange={e => handleDateChange(e, 'startDate')}
                     className="date-input"
                 />
                 <input
                     type="datetime-local"
-                    onChange={(e) => handleDateChange(e, 'end')}
+                    onChange={e => handleDateChange(e, 'endDate')}
                     className="date-input"
                 />
             </div>
