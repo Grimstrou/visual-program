@@ -2,20 +2,20 @@ import React, { useState, useEffect, useReducer } from 'react';
 import DataSet from './components/DataSet';
 import './App.css';
 
+// Начальное состояние приложения
 const initialState = {
-  comments: [],
-  loading: true,
-  error: null,
+  comments: [], // Массив комментариев
+  loading: true, // Флаг загрузки данных
+  error: null, // Ошибка, если она возникла
 };
 
+// Редьюсер для управления состоянием
 function dataReducer(state, action) {
   switch (action.type) {
     case 'SET_COMMENTS':
       return { ...state, comments: action.payload, loading: false };
-
     case 'ADD_COMMENT':
       return { ...state, comments: [...state.comments, action.payload] };
-
     case 'UPDATE_COMMENT':
       return {
         ...state,
@@ -23,32 +23,31 @@ function dataReducer(state, action) {
           comment.id === action.payload.id ? action.payload : comment
         ),
       };
-
     case 'DELETE_COMMENTS':
-      const updatedComments = state.comments
-        .filter((comment) => !action.payload.includes(comment.id))
-        .map((comment, index) => ({
-          ...comment,
-          id: index + 1,
-        }));
-      return { ...state, comments: updatedComments };
-
+      return {
+        ...state,
+        comments: state.comments.filter((comment) => !action.payload.includes(comment.id)),
+      };
     case 'SET_ERROR':
       return { ...state, error: action.payload, loading: false };
-
     default:
       return state;
   }
 }
 
 function App() {
-  const [state, dispatch] = useReducer(dataReducer, initialState);
-  const [filterText, setFilterText] = useState('');
+  const [state, dispatch] = useReducer(dataReducer, initialState); // Управление состоянием через редьюсер
+  const [filterText, setFilterText] = useState(''); // Текст для фильтрации комментариев
 
-  // Загрузка данных с сервера
+  // Загрузка данных с сервера при монтировании компонента
   useEffect(() => {
-    fetch('https://jsonplaceholder.typicode.com/comments')
-      .then((response) => response.json())
+    fetch('http://localhost:5117/comments') // URL вашего бэкенда
+      .then((response) => {
+        if (!response.ok) {
+          throw new Error(`HTTP error! Status: ${response.status}`);
+        }
+        return response.json();
+      })
       .then((data) => dispatch({ type: 'SET_COMMENTS', payload: data }))
       .catch((error) => dispatch({ type: 'SET_ERROR', payload: error.message }));
   }, []);
@@ -56,10 +55,10 @@ function App() {
   // Добавление нового комментария
   const handleAddComment = (newComment) => {
     const lastId = state.comments.reduce((max, comment) => Math.max(max, comment.id), 0);
-    const optimisticComment = { ...newComment, id: lastId + 1 };
+    const optimisticComment = { ...newComment, id: lastId + 1 }; // Оптимистичное обновление
     dispatch({ type: 'ADD_COMMENT', payload: optimisticComment });
 
-    fetch('https://jsonplaceholder.typicode.com/comments', {
+    fetch('http://localhost:5117/comments', {
       method: 'POST',
       body: JSON.stringify(newComment),
       headers: {
@@ -88,7 +87,7 @@ function App() {
   const handleUpdateComment = (updatedComment) => {
     dispatch({ type: 'UPDATE_COMMENT', payload: updatedComment });
 
-    fetch(`https://jsonplaceholder.typicode.com/comments/${updatedComment.id}`, {
+    fetch(`http://localhost:5117/comments/${updatedComment.id}`, {
       method: 'PATCH',
       body: JSON.stringify(updatedComment),
       headers: {
@@ -117,7 +116,7 @@ function App() {
     selectedIds.forEach((id) => {
       if (typeof id !== 'number') return;
 
-      fetch(`https://jsonplaceholder.typicode.com/comments/${id}`, {
+      fetch(`http://localhost:5117/comments/${id}`, {
         method: 'DELETE',
       }).catch((error) => {
         console.error(error);
@@ -126,17 +125,17 @@ function App() {
     });
   };
 
-  // Фильтрация данных
+  // Фильтрация данных по тексту комментария
   const filteredData = state.comments.filter((item) =>
-    item.body.toLowerCase().includes(filterText.toLowerCase())
+    item.text?.toLowerCase().includes(filterText.toLowerCase())
   );
 
   // Заголовки таблицы
   const headers = [
     { property: 'id', label: 'ID' },
-    { property: 'name', label: 'Имя' },
+    { property: 'author', label: 'Автор' },
     { property: 'email', label: 'Email' },
-    { property: 'body', label: 'Комментарий' },
+    { property: 'text', label: 'Комментарий' },
   ];
 
   return (
@@ -152,10 +151,13 @@ function App() {
         style={{ marginBottom: '20px', padding: '8px', width: '100%' }}
       />
 
+      {/* Отображение состояния загрузки или ошибок */}
       {state.loading ? (
         <p>Загрузка данных...</p>
       ) : state.error ? (
-        <p>{state.error}</p>
+        <p>Error: {state.error}</p>
+      ) : filteredData.length === 0 ? (
+        <p>Нет данных</p>
       ) : (
         <DataSet
           headers={headers}

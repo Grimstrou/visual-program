@@ -12,16 +12,16 @@ const DataSet = ({
   const [selectedRows, setSelectedRows] = useState([]);
   const [editingRow, setEditingRow] = useState(null);
   const [editedData, setEditedData] = useState({});
-  const [newComment, setNewComment] = useState({ name: '', email: '', body: '' });
+  const [newComment, setNewComment] = useState({ text: '', author: '', email: '' });
 
   // Экспорт данных в CSV
   const exportToCSV = () => {
     const csvContent =
       'data:text/csv;charset=utf-8,' +
-      ['ID,Name,Email,Body']
+      ['ID,Text,Author,Email']
         .concat(
           data.map((item) =>
-            `${item.id},${item.name},${item.email},${item.body}`.replace(/,/g, ';')
+            `${item.id},${item.text},${item.author},${item.email}`.replace(/,/g, ';')
           )
         )
         .join('\n');
@@ -79,7 +79,7 @@ const DataSet = ({
   const handleAddComment = () => {
     if (onAdd) {
       onAdd(newComment);
-      setNewComment({ name: '', email: '', body: '' });
+      setNewComment({ text: '', author: '', email: '' });
     }
   };
 
@@ -148,10 +148,18 @@ const DataSet = ({
       <div className="form">
         <input
           type="text"
-          placeholder="Имя"
-          value={newComment.name}
+          placeholder="Текст"
+          value={newComment.text}
           onChange={(e) =>
-            setNewComment({ ...newComment, name: e.target.value })
+            setNewComment({ ...newComment, text: e.target.value })
+          }
+        />
+        <input
+          type="text"
+          placeholder="Автор"
+          value={newComment.author}
+          onChange={(e) =>
+            setNewComment({ ...newComment, author: e.target.value })
           }
         />
         <input
@@ -160,13 +168,6 @@ const DataSet = ({
           value={newComment.email}
           onChange={(e) =>
             setNewComment({ ...newComment, email: e.target.value })
-          }
-        />
-        <textarea
-          placeholder="Комментарий"
-          value={newComment.body}
-          onChange={(e) =>
-            setNewComment({ ...newComment, body: e.target.value })
           }
         />
         <button onClick={handleAddComment}>Добавить</button>

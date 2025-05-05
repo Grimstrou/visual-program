@@ -1,0 +1,6 @@
+D:\global\visual-program\WebApi\obj\Debug\net6.0\WebApi.GeneratedMSBuildEditorConfig.editorconfig
+D:\global\visual-program\WebApi\obj\Debug\net6.0\WebApi.AssemblyInfoInputs.cache
+D:\global\visual-program\WebApi\obj\Debug\net6.0\WebApi.AssemblyInfo.cs
+D:\global\visual-program\WebApi\obj\Debug\net6.0\WebApi.csproj.CoreCompileInputs.cache
+D:\global\visual-program\WebApi\obj\Debug\net6.0\WebApi.MvcApplicationPartsAssemblyInfo.cache
+D:\global\visual-program\WebApi\obj\Debug\net6.0\WebApi.sourcelink.json
